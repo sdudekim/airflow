@@ -14,14 +14,14 @@ with DAG(
 
     bash_t1 = BashOperator(
         task_id="bash_t1",
-        bash_command=' echo "data_inteval_end: {{data_inteval_end}} "'
+        bash_command=' echo "date_inteval_end: {{date_inteval_end}} " '
     )
 
     bash_t2 = BashOperator(
         task_id='bash_t2',
         env={
-            'START_DATE' : '{{data_inteval_start | ds}}',
-            'END_DATE': '{{data_inteval_end | ds}}'
+            'START_DATE' : '{{date_inteval_start | ds}}',
+            'END_DATE': '{{date_inteval_end | ds}}'
         },
         bash_command='echo $START_DATE && echo $END_DATE'
     )
