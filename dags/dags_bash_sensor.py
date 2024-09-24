@@ -12,7 +12,7 @@ with DAG(
 
     sensor_task_by_poke = BashSensor(
         task_id='sensor_task_by_poke',
-        env={'FILE':'/airflow/airflow/files/test.csv'},
+        env={'FILE':'/opt/airflow/files/test.csv'},
         bash_command=f'''echo $FILE && 
                         if [ -f $FILE ]; then 
                               exit 0
@@ -27,7 +27,7 @@ with DAG(
 
     sensor_task_by_reschedule = BashSensor(
         task_id='sensor_task_by_reschedule',
-        env={'FILE':'/airflow/airflow/airflow/files/test.csv'},
+        env={'FILE':'/opt/airflow/airflow/files/test.csv'},
         bash_command=f'''echo $FILE && 
                         if [ -f $FILE ]; then 
                               exit 0
